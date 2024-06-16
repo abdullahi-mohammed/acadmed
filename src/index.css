@@ -8,6 +8,16 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  color: #906EA0;
+  color: #493b4f;
   font-size: 14px;
+}
+.sc-body-model-svg {
+  stroke-width: 0.5px;
+}
+.sc-body-model-svg__path {
+  stroke: none;
+}
+.sc-body-model-svg__path:hover {
+  fill: rgb(207, 168, 255);
+  stroke: none
 }
