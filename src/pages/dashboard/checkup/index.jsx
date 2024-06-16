@@ -5,7 +5,7 @@ import Button from '../../../components/general/button'
 
 const Checkup = () => {
     return (
-            <div className='flex-1'>
+            <div className=''>
                 <GeneralHeader h2="Check Ups" p="Health checkups are important to ensure optimal health status." />
                 <div>
                     <Card className="flex">

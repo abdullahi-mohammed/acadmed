@@ -1,29 +1,15 @@
 
-export const infermedica = (sex, age, interviewId) => {
+export const infermedica = async (sex, age, interviewId, evidence) => {
     const URL = "https://api.infermedica.com/v3/diagnosis"
     const body = {
         sex,
         age: {
             value: age
         },
-        evidence: [
-            {
-                "id": "s_1193",
-                "choice_id": "present",
-                "source": "initial"
-            },
-            {
-                "id": "s_488",
-                "choice_id": "present"
-            },
-            {
-                "id": "s_418",
-                "choice_id": "present"
-            }
-        ]
+        evidence
     }
 
-    fetch(URL, {
+    const response = await fetch(URL, {
         method: "POST",
         headers: {
             "App-Id": import.meta.env.VITE_INFERMEDICA_APP_ID,
@@ -34,10 +20,6 @@ export const infermedica = (sex, age, interviewId) => {
         },
         body: JSON.stringify(body)
     })
-    .then(response => {
-        return response
-    })
-    .catch(error => {
-        console.log(error)
-    })
+    const result = await response.json()
+    return result
 }

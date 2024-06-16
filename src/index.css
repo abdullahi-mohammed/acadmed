@@ -17,7 +17,8 @@ body {
 .sc-body-model-svg__path {
   stroke: none;
 }
-.sc-body-model-svg__path:hover {
+.sc-body-model-svg__path:hover,
+  .sc-body-model-svg__path.active {
   fill: rgb(207, 168, 255);
   stroke: none
 }

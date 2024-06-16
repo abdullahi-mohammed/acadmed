@@ -1,23 +1,30 @@
 import { FaCheckCircle } from "react-icons/fa"
 import InputField from "../inputField/inputField"
 
-export default function BasicInfo ({ handleAge, data, setData }) {
+export default function BasicInfo ({ data, setData }) {
     
     const gender = [
         { id: 0, img: "/images/man.png", title: "Male" },
         { id: 1, img: "/images/woman.png", title: "Female" },
     ]
 
+    const handleAge = (age) => {
+        setData({ ...data, age })
+    }
+    const handleFullname = (fullname) => {
+        setData({ ...data, fullname })
+    }
+
     return (
         <div>
-            <div className="flex flex-col rounded-[15px] bg-slate-100/[0.5] border border-gray-500/[0.1] my-4">
+            <div className="flex flex-col rounded-[15px] border border-gray-500/[0.1] my-4">
                 <p className="font-medium p-4 px-6 border border-transparent border-b-gray-500/[0.1] bg-gray-100 rounded-t-[15px]">Fullname</p>
                 <div className="px-6">
-                    <InputField action={handleAge} value={data.age} type={"text"}/>
+                    <InputField action={handleFullname} value={data.fullname} type={"text"}/>
                 </div>
             </div>
 
-            <div className="flex flex-col rounded-[15px] bg-slate-100/[0.5] border border-gray-500/[0.1] my-4">
+            <div className="flex flex-col rounded-[15px] border border-gray-500/[0.1] my-4">
                 <p className="font-medium p-4 px-6 border border-transparent border-b-gray-500/[0.1] bg-gray-100 rounded-t-[15px]">Select Gender</p>
                 <div className="md:w-[50%] grid grid-cols-3 gap-4 p-4 px-6">
                     {
@@ -37,7 +44,7 @@ export default function BasicInfo ({ handleAge, data, setData }) {
             </div>
 
             
-            <div className="flex flex-col rounded-[15px] bg-slate-100/[0.5] border border-gray-500/[0.1] my-4">
+            <div className="flex flex-col rounded-[15px] border border-gray-500/[0.1] my-4">
                 <p className="font-medium p-4 px-6 border border-transparent border-b-gray-500/[0.1] bg-gray-100 rounded-t-[15px]">Age</p>
                 <div className="gap-4 px-6">
                     <InputField action={handleAge} value={data.age} type={"number"}/>

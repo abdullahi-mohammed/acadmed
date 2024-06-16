@@ -20,8 +20,8 @@ export default function SideNav() {
 
     return (
         <div 
-            className={`w-[250px] px-3 md:h-auto h-full md:bg-[#F7F7F9]/[0.7] dark:bg-black bg-white text-[#606EA0]
-            md:static fixed top-0 right-0 border border-[#F7F0FB] transition-all duration-700 z-[4]
+            className={`w-[250px] px-3 md:h-screen h-full md:bg-[#F7F7F9]/[0.7] dark:bg-black bg-white
+            md:sticky fixed top-0 md:right-auto right-0 border border-[#F7F0FB] transition-all duration-700 z-[4]
             ${open ? "translate-x-[0px]" : "md:translate-x-0 translate-x-[250px]"}
         `}>
 
