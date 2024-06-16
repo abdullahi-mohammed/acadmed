@@ -1,6 +1,5 @@
 import { symptoms } from "../../data/symptoms"
 import { useEffect, useState } from "react"
-import { getSymptoms } from "../../utils/infermedica"
 import Model from "../../data/model"
 
 export default function Symptoms ({ data, setData }) {
@@ -31,8 +30,8 @@ export default function Symptoms ({ data, setData }) {
                         <div>
                             <div className="flex flex-wrap text-[12px] gap-2 pt-4 pb-4 my-4 max-h-[250px] overflow-y-auto">
                             {
-                                symptomsList.map(symptom => (
-                                    <button className="p-2 py-1 rounded border border-gray-500/[0.2]" onClick={() => addSymptom(symptom.description)} title={symptom.description}>{symptom.description}</button>
+                                symptomsList.map((symptom, i) => (
+                                    <button key={i} className="p-2 py-1 rounded border border-gray-500/[0.2]" onClick={() => addSymptom(symptom.description)} title={symptom.description}>{symptom.description}</button>
                                 ))
                             }
                             </div>
