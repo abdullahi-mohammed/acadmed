@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import Overview from './overview/overview'
 import SideNav from '../../components/sideNav/sideNav'
 import SymptomCheck from './symptom-check/symptomCheck'
+import Checkup from './checkup'
 
 function Dashboard() {
 
@@ -15,6 +16,7 @@ function Dashboard() {
             <div className="md:w-[60%] w-full">
               <Routes>
                   <Route path={"/"} exact element={<Overview />} />
+                  <Route path={"/checkup"} exact element={<Checkup />} />
                   <Route path={"/checkup/symptom-check"} exact element={<SymptomCheck />} />
               </Routes>
             </div>
