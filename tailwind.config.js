@@ -8,7 +8,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        "purple": "#AC42C7"      
+        "purple": "#AC42C7",
+        "black": "#18181A"
       },
     }
   },

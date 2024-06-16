@@ -1,13 +1,10 @@
 import React from 'react'
-import GeneralHeader from '../../components/general/header'
-import SideNav from '../../components/sideNav/sideNav'
-import Card from '../../components/general/card'
-import Button from '../../components/general/button'
+import GeneralHeader from '../../../components/general/header'
+import Card from '../../../components/general/card'
+import Button from '../../../components/general/button'
 
 const Checkup = () => {
     return (
-        <div className='flex'>
-            <SideNav />
             <div className='flex-1'>
                 <GeneralHeader h2="Check Ups" p="Health checkups are important to ensure optimal health status." />
                 <div>
@@ -35,7 +32,6 @@ const Checkup = () => {
                     </Card>
                 </div>
             </div>
-        </div>
     )
 }
 
