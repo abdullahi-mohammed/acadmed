@@ -82,7 +82,7 @@ export default function AssessmentResult({ result, data }) {
 
                             interview[active]?.question?.items.map(item => (
                                 <div key={item.id} className="flex flex-col">
-                                    <p className="-mb-2 text-[10px]">{item.name}</p>
+                                    <p className="-mb-2 text-[14px]">{item.name}</p>
                                     <SelectField text={item.id} action={addUserAnswer} options={item.choices.map(option => ({ id: option.id, label: option.label, value: option.id }))}/>
                                 </div>
                             ))

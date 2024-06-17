@@ -20,7 +20,7 @@ export default function BasicInfo ({ data, setData }) {
             <div className="flex flex-col rounded-[15px] border border-gray-500/[0.1] my-4">
                 <p className="font-medium p-4 px-6 border border-transparent border-b-gray-500/[0.1] bg-gray-100 rounded-t-[15px]">Fullname</p>
                 <div className="px-6">
-                    <InputField action={handleFullname} value={data.fullname} type={"text"}/>
+                    <InputField action={handleFullname} placeholder={"Enter your fullname"} value={data.fullname} type={"text"}/>
                 </div>
             </div>
 
@@ -47,7 +47,7 @@ export default function BasicInfo ({ data, setData }) {
             <div className="flex flex-col rounded-[15px] border border-gray-500/[0.1] my-4">
                 <p className="font-medium p-4 px-6 border border-transparent border-b-gray-500/[0.1] bg-gray-100 rounded-t-[15px]">Age</p>
                 <div className="gap-4 px-6">
-                    <InputField action={handleAge} value={data.age} type={"number"}/>
+                    <InputField action={handleAge} placeholder={"Enter your age"} value={data.age} type={"number"}/>
                 </div>
             </div>
         </div>

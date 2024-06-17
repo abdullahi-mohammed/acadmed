@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import Overview from './overview/overview'
 import SideNav from '../../components/sideNav/sideNav'
 import SymptomCheck from './symptom-check/symptomCheck'
@@ -15,7 +15,8 @@ function Dashboard() {
           <div className="flex flex-wrap justify-between items-start w-full">
             <div className="w-full">
               <Routes>
-                  <Route path={"/"} exact element={<Overview />} />
+                  <Route path={"/"} exact element={ <Navigate to="/dashboard/overview" />} />
+                  <Route path={"/overview"} exact element={<Overview />} />
                   <Route path={"/checkup"} exact element={<Checkup />} />
                   <Route path={"/planner"} exact element={<Planner />} />
                   <Route path={"/checkup/symptom-check"} exact element={<SymptomCheck />} />

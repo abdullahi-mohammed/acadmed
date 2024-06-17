@@ -11,7 +11,7 @@ export default function SideNav() {
     const sideNavRef = useOutsideClick(setOpen)
 
     const generalLinks = [
-        { id: 0, text: "dashboard", to: "/dashboard", icon: <FiDatabase /> },
+        { id: 0, text: "dashboard", to: "/dashboard/overview", icon: <FiDatabase /> },
         { id: 1, text: "checkup" , to: "/dashboard/checkup", icon: <FiUserCheck />},
         { id: 2, text: "planner", to: "/dashboard/planner" , icon: <FiCalendar />},
     ]
@@ -31,7 +31,7 @@ export default function SideNav() {
 
             {/* open and close button  */}
             <button 
-                className={`p-4 py-6 ml-auto md:hidden relative bg-white
+                className={`p-4 py-5 ml-auto md:hidden relative
                 transition-all duration-700
                 ${open ? "translate-x-[-12px]" : "translate-x-[-60px]"}`} 
                 onClick={() => setOpen(!open)}
@@ -43,7 +43,7 @@ export default function SideNav() {
             <p className="text-[#C1B4C7] p-4">GENERAL</p>
             {
                 generalLinks.map(links => ( 
-                    <Link key={links.id} to={links.to} className={`flex mb-1 mx-1 capitalize items-center gap-4 p-4 py-2 hover:bg-purple/[0.2] duration-500 rounded-[8px] ${pathname === links.to ? "bg-purple text-white border border-[#F7F0FB]" : ""}`}>
+                    <Link key={links.id} to={links.to} className={`flex mb-1 mx-1 capitalize items-center gap-4 p-4 py-2 hover:bg-purple/[0.2] duration-500 rounded-[8px] ${pathname.indexOf(links.to) !== -1 ? "bg-purple text-white border border-[#F7F0FB]" : ""}`}>
                         <span className="text-[17px]">{links.icon}</span>
                         {links.text}
                     </Link>

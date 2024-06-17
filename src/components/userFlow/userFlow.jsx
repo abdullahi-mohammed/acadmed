@@ -48,7 +48,7 @@ export default function UserFlow({ result, setResult, data, setData }) {
                         <div key={status.id} className={`relative flex flex-col gap-2 items-center ${status.id < active+1 ? "text-green-600" : ""}`}>
                             <span className={`absolute h-[2px] ${status.id < active+1 ? "bg-green-600" : "bg-gray-500/[0.2]"} top-[18px] left-[-15%] ${status.id === 0 ? "hidden" : status.id === 3 ? "w-[30%]" : "w-[30%] "}`}></span>
                             <span className={`relative text-[20px] p-2 rounded-full border-2 border-gray-500/[0.2] dark:bg-black z-[2] ${status.id < active+1 ? "bg-green-600 text-white" : ""}`}>{status.icon}</span>
-                            <span>{status.title}</span>
+                            <span className="text-center sm:text-[12px] text-[10px]">{status.title}</span>
                         </div>
                     ))
                 }
@@ -60,17 +60,17 @@ export default function UserFlow({ result, setResult, data, setData }) {
             </h1>
 
             
-            <div className="relative w-full min-h-[570px] overflow-x-hidden">
-                <div className={`absolute top-0 left-0 w-full duration-700 ${active > 0 ? "translate-x-[-150%]" : "translate-x-0"}`}>
+            <div className="relative w-full overflow-hidden">
+                <div className={`top-4 left-0 w-full duration-700 ${active > 0 ? "translate-x-[-150%] absolute" : "translate-x-0 relative"}`}>
                     <BasicInfo data={data} setData={setData} />
                 </div>
-                <div className={`absolute top-0 left-0 w-full duration-700 ${active === 1 ? "translate-x-0" : active > 1 ? "translate-x-[-150%]" : "translate-x-[150%]"}`}>
+                <div className={`top-4 left-0 w-full duration-700 ${active === 1 ? "translate-x-0 relative" : active > 1 ? "translate-x-[-150%] absolute" : "translate-x-[150%] absolute"}`}>
                     <Assessments data={data} setData={setData} />
                 </div>
-                <div className={`absolute top-0 left-0 w-full duration-700 ${active === 2 ? "translate-x-0" : active > 1 ? "translate-x-[-150%]" : "translate-x-[150%]"}`}>
+                <div className={`top-4 left-0 w-full duration-700 ${active === 2 ? "translate-x-0 relative" : active > 1 ? "translate-x-[-150%] absolute" : "translate-x-[150%] absolute"}`}>
                     <Symptoms data={data} setData={setData} />
                 </div>
-                <div className={`absolute top-0 left-0 w-full duration-700 ${active === 3 ? "translate-x-0" : active > 1 ? "translate-x-[-150%]" : "translate-x-[150%]"}`}>
+                <div className={`top-4 left-0 w-full duration-700 ${active === 3 ? "translate-x-0 relative" : active > 1 ? "translate-x-[-150%] absolute" : "translate-x-[150%] absolute"}`}>
                     <AssessmentResult result={result} data={data} />
                 </div>
             
