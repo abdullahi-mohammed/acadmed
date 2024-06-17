@@ -3,7 +3,7 @@ import Overview from './overview/overview'
 import SideNav from '../../components/sideNav/sideNav'
 import SymptomCheck from './symptom-check/symptomCheck'
 import Checkup from './checkup'
-import GeneralHeader from '../../components/general/header'
+import Planner from './planner/planner'
 
 function Dashboard() {
 
@@ -17,6 +17,7 @@ function Dashboard() {
               <Routes>
                   <Route path={"/"} exact element={<Overview />} />
                   <Route path={"/checkup"} exact element={<Checkup />} />
+                  <Route path={"/planner"} exact element={<Planner />} />
                   <Route path={"/checkup/symptom-check"} exact element={<SymptomCheck />} />
               </Routes>
             </div>
