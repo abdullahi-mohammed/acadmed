@@ -54,13 +54,11 @@ export const symptoms = {
         { id: 's_252', description: 'Itchy nose or throat' },
         { id: 's_1303', description: 'Nasal voice' },
         { id: 's_715', description: 'Sneezing' },
-        { id: 's_1605', description: 'Nose pain' },
         { id: 's_1496', description: 'Sinus pain or pressure' },
         { id: 's_1429', description: 'Bleeding from nose' },
         { id: 's_1471', description: 'Mucus dripping at the back of the throat' },
       ],
     oral_cavity: [
-      { id: "0", description: "Bad breath" },
       { id: "s_247", description: "Dry mouth" },
       { id: "s_551", description: "Toothache" },
       { id: "s_266", description: "Difficulty biting and chewing" },
@@ -72,7 +70,6 @@ export const symptoms = {
       { id: "s_305", description: "Vomiting" },
       { id: "s_102", description: "Coughing" },
       { id: "s_284", description: "Diminished appetite" },
-      { id: 's_247', description: 'Dry mouth' },
       { id: 's_272', description: 'Enamel lesions caries' }
     ],
     neck_or_throat: [
@@ -87,12 +84,10 @@ export const symptoms = {
       { id: "s_88", description: "Shortness of breath (dyspnea)" },
       { id: "s_1483", description: "Pain in the neck" },
       { id: "s_220", description: "Enlarged lymph nodes" },
-      { id: "13", description: "Swollen neck" },
       { id: "s_418", description: "Stiff neck" },
       { id: "s_671", description: "Swollen neck veins" },
       { id: 's_68', description: 'Dysphonia' },
-      { id: 's_204', description: 'Forward-leaning posture' },
-      { id: 's_220', description: 'Enlarged lymph nodes' }
+      { id: 's_204', description: 'Forward-leaning posture' }
     ],
     chest: [
       { id: "s_586", description: "Breast enlargement in man (Gynecomastia)" },
