@@ -59,9 +59,9 @@ export default function AssessmentResult({ result, data }) {
                         <div 
                             key={condition.id}
                             className={`flex flex-col bg-slate-100 p-4 gap-2 rounded-[10px] my-2 border
-                            ${condition.probability > 0.5 ? "bg-emerald-400/[0.3] border-green-400" : 
-                                condition.probability > 0.3 ? "bg-yellow-400/[0.3] border-orange-400/[0.4]" 
-                                : "bg-purple/[0.3] border-purple/[0.4]"}`} 
+                            ${condition.probability > 0.5 ? "bg-emerald-400/[0.09] border-green-400" : 
+                                condition.probability > 0.3 ? "bg-yellow-400/[0.09] border-orange-400/[0.4]" 
+                                : "bg-purple/[0.09] border-purple/[0.4]"}`} 
                         >
                             <p className="font-medium">{condition.name}</p>
                             <div className="flex gap-1 text-[10px] opacity-[0.6]">
@@ -75,7 +75,7 @@ export default function AssessmentResult({ result, data }) {
 
             <div>
                 <div className="flex flex-col rounded-[15px] border border-gray-500/[0.1] my-4">
-                    <p className="font-medium p-4 px-6 mb-4 border border-transparent border-b-gray-500/[0.1] bg-gray-100 rounded-t-[15px]">{interview[active]?.question?.text}</p>
+                    <p className="font-medium p-4 px-6 mb-4 border border-transparent border-b-gray-500/[0.1] bg-gray-100 dark:bg-black rounded-t-[15px]">{interview[active]?.question?.text}</p>
                     <div className="px-6">
 
                         { // Ask user more questions to give better results

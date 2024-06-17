@@ -47,7 +47,7 @@ export default function UserFlow({ result, setResult, data, setData }) {
                     flow.map((status) => (
                         <div key={status.id} className={`relative flex flex-col gap-2 items-center ${status.id < active+1 ? "text-green-600" : ""}`}>
                             <span className={`absolute h-[2px] ${status.id < active+1 ? "bg-green-600" : "bg-gray-500/[0.2]"} top-[18px] left-[-15%] ${status.id === 0 ? "hidden" : status.id === 3 ? "w-[30%]" : "w-[30%] "}`}></span>
-                            <span className={`relative text-[20px] p-2 rounded-full border-2 border-gray-500/[0.2] dark:bg-black z-[2] ${status.id < active+1 ? "bg-green-600 text-white" : ""}`}>{status.icon}</span>
+                            <span className={`relative text-[20px] p-2 rounded-full border-2 border-gray-500/[0.2] z-[2] ${status.id < active+1 ? "bg-green-600 text-white" : ""}`}>{status.icon}</span>
                             <span className="text-center sm:text-[12px] text-[10px]">{status.title}</span>
                         </div>
                     ))

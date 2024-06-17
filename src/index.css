@@ -6,9 +6,15 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  color: #493b4f;
+}
+html.dark {
+  background-color: #111113;
+  color: rgb(199, 208, 216);
+}
 body {
   font-family: "Roboto", sans-serif;
-  color: #493b4f;
   font-size: 14px;
 }
 .sc-body-model-svg {
