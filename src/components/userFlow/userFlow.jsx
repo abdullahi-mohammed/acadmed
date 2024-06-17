@@ -61,7 +61,7 @@ export default function UserFlow({ result, setResult, data, setData }) {
 
             
             <div className="relative w-full min-h-[570px] overflow-x-hidden">
-                <div className={`top-0 left-0 w-full duration-700 ${active > 0 ? "translate-x-[-150%]" : "translate-x-0"}`}>
+                <div className={`absolute top-0 left-0 w-full duration-700 ${active > 0 ? "translate-x-[-150%]" : "translate-x-0"}`}>
                     <BasicInfo data={data} setData={setData} />
                 </div>
                 <div className={`absolute top-0 left-0 w-full duration-700 ${active === 1 ? "translate-x-0" : active > 1 ? "translate-x-[-150%]" : "translate-x-[150%]"}`}>
