@@ -17,7 +17,7 @@ function SelectField({ text, action, value, options }) {
                     <option className="opacity-[0.5]">Select one</option>
                     {
                         options.map(option => (
-                            <option value={option.value} key={option.id}>{option.label || option.value}</option>
+                            <option className="dark:bg-black" value={option.value} key={option.id}>{option.label || option.value}</option>
                         ))
                     }
                 </select>
