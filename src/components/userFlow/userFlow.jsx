@@ -1,5 +1,5 @@
 import { PiList, PiStethoscope, PiUser, PiUserCheck } from "react-icons/pi"
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import BasicInfo from "./basicInfo"
 import Assessments from "./assessments"
 import Symptoms from "./symptoms"
@@ -12,7 +12,8 @@ import { CheckupContext } from "../../context/checkupContext"
 export default function UserFlow({ result, setResult, data, setData }) {
     const [active, setActive] = useState(0)
     const {user} = useContext(AuthContext)
-    const { addCheckup } = useContext(CheckupContext)
+    const { addCheckup, checkups, updateCheckup } = useContext(CheckupContext)
+    const userCheckup = checkups.filter(item => item.user === user.email)[0]
 
     const flow = [
         { id: 0, icon: <PiUser />, title: "Basic Information" },
@@ -20,6 +21,10 @@ export default function UserFlow({ result, setResult, data, setData }) {
         { id: 2, icon: <PiUserCheck />, title: "Symptoms" },
         { id: 3, icon: <PiStethoscope />, title: "Results" },
     ]
+
+    useEffect(() => {
+        setData(userCheckup)
+    }, [userCheckup])
 
     const handleNext = () => {
         if(active === 0) {
@@ -37,7 +42,11 @@ export default function UserFlow({ result, setResult, data, setData }) {
                 : 
                 { id: item.id, choice_id: "present" }
             ))
-            addCheckup({ ...data, user: user.email })
+            userCheckup ?
+            updateCheckup(userCheckup.id, { ...data })
+            :
+            addCheckup({ ...data, user: user.email });
+
             infermedica(data.gender, data.age, data.interviewId, evidence)
             .then(result => setResult(result))
             .catch(error => console.log(error))
@@ -47,6 +56,10 @@ export default function UserFlow({ result, setResult, data, setData }) {
 
     return (
         <div className="">
+            <div className="py-2 mb-6 border border-transparent border-b-gray-500/[0.2]">
+                <h1 className="text-lg font-medium mb-2">Analyze your symptoms</h1>
+                <p>Take a short (3 min) symptom assessment. The information you give is safe and won't be shared</p>
+            </div>
             <div className="grid grid-cols-4 text-md text-[12px] leading-[120%] py-10 mb-5 rounded-[15px]">
                 {
                     flow.map((status) => (
