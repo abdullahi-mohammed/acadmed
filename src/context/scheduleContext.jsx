@@ -1,7 +1,8 @@
-import { createContext, useEffect, useState } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 import { useLocalStorage } from "../customHooks/useLocalStorage"
-import { addDoc, collection, doc, getDocs, updateDoc } from "firebase/firestore"
+import { addDoc, collection, doc, getDocs, query, updateDoc, where } from "firebase/firestore"
 import { db } from "../firebase/firebase"
+import { AuthContext } from "../customHooks/useAuth"
 
 
 export const SchedulesContext = createContext()
@@ -10,6 +11,7 @@ export default function SchedulesProvider({ children }) {
     const [schedules, setSchedules] = useLocalStorage("schedules", [])
     const [popup, setPopup] = useState("schedules")
     const [loading, setLoading] = useState(false)
+    const {user} = useContext(AuthContext)
 
     const addSchedule = async (data) => {
         setLoading(true)
@@ -45,10 +47,11 @@ export default function SchedulesProvider({ children }) {
         setLoading(true)
         try {
             let arr = []
-            const querySnapshot = await getDocs(collection(db, "schedules"));
+            const querySnapshot = await getDocs(query(collection(db, "schedules"), where("user", "==", user?.email)));
             querySnapshot.forEach((doc) => {
                 arr.push({...doc.data(), id: doc.id})
             })
+            console.log(arr)
             setSchedules(arr)
             setLoading(false)
         }

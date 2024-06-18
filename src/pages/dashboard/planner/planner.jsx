@@ -1,11 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import { PiCalendar, PiGridFour, PiList, PiRobot, PiUser } from "react-icons/pi";
+import { PiCalendar, PiGridFour, PiList } from "react-icons/pi";
 import { FaTimes } from "react-icons/fa";
 import GeneralHeader from "../../../components/general/header";
-import ScheduleGrid from "../../../components/scheduleGrid/scheduleGrid";
-import { askGemini } from "../../../utils/geminiApi";
-import { nanoid } from "nanoid";
-import Markdown from "markdown-to-jsx";
 import NewSchedule from "../../../components/newSchedule/newSchedule";
 import { useOutsideClick } from "../../../customHooks/useClickOutside";
 import { SchedulesContext } from "../../../context/scheduleContext";
@@ -18,6 +14,9 @@ export default function Planner() {
     const scheduleRef = useOutsideClick(setOpenNewSchedule)
     const { schedules } = useContext(SchedulesContext);
 
+    useEffect(() => {
+        console.log(schedules)
+    }, [])
 
     const value = new Date()
     const layoutList = [
@@ -70,8 +69,8 @@ export default function Planner() {
                     </div>
 
                     {/* open new schedule modal */}
-                    <div className={`${openNewSchedule ? "fixed top-0 left-0 w-full h-screen bg-white/[0.8] dark:bg-black/[0.8] flex items-center justify-center z-[2]": ""}`}>
-                            <div ref={scheduleRef} className={`h-auto p-8 rounded-[15px] bg-white dark:bg-black w-[350px] border border-gray-500/[0.1] shadow-md z-[12] transition-all duration-700 ${openNewSchedule ? "block" : "hidden"}`}>
+                    <div className={`${openNewSchedule ? "fixed top-0 left-0 w-full h-screen bg-white/[0.8] dark:bg-black/[0.8] backdrop-blur-sm flex items-center justify-center z-[3]": ""}`}>
+                            <div ref={scheduleRef} className={`h-auto p-8 rounded-[15px] bg-white dark:bg-black w-[350px] border border-gray-500/[0.1] shadow-md transition-all duration-700 ${openNewSchedule ? "block" : "hidden"}`}>
                                 <div className="flex justify-between items-center">
                                     <h2 className="font-bold text-[16px]">New task</h2>
                                     <button onClick={() => setOpenNewSchedule(false)}><FaTimes className="p-2 text-[28px] rounded shadow-lg border border-gray-500/[0.3]" /></button>

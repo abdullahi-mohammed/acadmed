@@ -36,7 +36,7 @@ export default function Topbar() {
                         {user?.photoURL ? <img src={user?.photoURL} alt="user" className="rounded-full" width={35} height={35} /> : user?.email.charAt(0)}
                     </Link>
                     :
-                    <a href="/login" className="px-6 py-2 bg-black text-white rounded">Login</a>
+                    <Link to="/login" className="px-6 py-2 bg-black dark:bg-purple text-white rounded">Login</Link>
             }
         </header>
     )
