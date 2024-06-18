@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import UserFlow from "../../../components/userFlow/userFlow";
+import BotTips from '../../../components/botTips/botTips';
 
 export default function SymptomCheck() {
     const [result, setResult] = useState({})
@@ -7,13 +8,11 @@ export default function SymptomCheck() {
 
     return (
         <div className="flex flex-wrap justify-between">
-            <div className="lg:w-[60%] w-full md:mt-0 mt-12">
+            <div className="lg:w-[70%] w-full md:mt-0 mt-12">
                 <UserFlow result={result} setResult={setResult} data={data} setData={setData}/>
             </div>
             
-            <div className="lg:w-[36%] w-full p-4 border border-gray-500/[0.1] fill-white stroke-gray-500 rounded-[15px]">
-                
-            </div>
+            <BotTips prompt={` using information ${JSON.stringify(data)}, generate tips for me for success as a student, what i need to watch out for concerning my health and how to plan my schedules everyday `} />
         </div>
     )
 }
