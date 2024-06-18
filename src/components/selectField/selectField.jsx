@@ -10,6 +10,7 @@ function SelectField({ text, action, value, options }) {
                     id={text} 
                     className="p-2 border-none outline-none bg-transparent w-full" 
                     defaultValue={value} 
+                    value={value}
                     onFocus={() => setFocus(true)} 
                     onBlur={() => setFocus(false)} 
                     onChange={(e) => {action(text, e.target.value)}}
