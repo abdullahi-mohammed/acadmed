@@ -14,18 +14,19 @@ export default function ScheduleGrid({element, layout}) {
     return (
         <div 
             ref={scheduleRef} 
-            tabIndex={1}
             onClick={() => setOpen(!open)}
-            onKeyPress={() => setOpen(!open)}
+            onKeyPress={(e) => e.key === "Enter" ? setOpen(!open) : ""}
             style={{ top: scheduleLayout(element.duration).top, height: !open ? scheduleLayout(element.duration).height : "auto" }} 
-            className={`m-[2px] ${layout === "Calendar" ? "absolute text-[10px] w-[97%]" : "text-[12px]"} left-0 border duration-500 rounded pl-2 py-1 pb-2 break-inside-avoid
+            className={`m-[2px] ${layout === "Calendar" ? `absolute text-[10px] w-[97%]` : `${!open ? "max-h-[150px] min-h-[80px]" : ""} text-[12px]`} 
+            left-0 border duration-500 rounded pl-2 py-1 pb-2 break-inside-avoid min-h-[65px] z-[2]
             ${element.status === "Completed" ? "bg-emerald-400/[0.2] border-green-400/[0.4]" 
             : element.status === "Upcoming" ? "bg-yellow-400/[0.2] border-orange-400/[0.4]" 
             : element.status === "On-hold" ? "bg-red-400/[0.2] border-red-400/[0.4]" 
             : "bg-purple/[0.3] border-purple/[0.4]"}`}>          
             
-            <h3 className="font-medium mt-1">{element.title}</h3>  
-            <p className="text-[8px] mt-1">{element.duration.replace(",", " - ")}</p>  
+            <button className="font-medium mt-1">{element.title}</button>  
+            <p className="text-[10px] mt-1">{element.duration.replace(",", " - ")}</p>  
+            <p className="text-[10px] mt-1">{element.date}</p>  
 
             <div className={`p-2 rounded bg-slate-100/[0.09] mr-2 mt-2 ${open ? "block" : "hidden"}`}>
                 <p className="mb-2">Description: {element.description}</p>

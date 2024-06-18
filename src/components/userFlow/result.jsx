@@ -10,7 +10,6 @@ export default function AssessmentResult({ result, data }) {
 
     useEffect(() => {
         setInterview([ result ])
-        console.log(interview)
     }, [result])
     
     const addUserAnswer = (id, value) => {
@@ -47,6 +46,10 @@ export default function AssessmentResult({ result, data }) {
             setActive(active+1)
         })
         .catch(error => console.log(error))
+    }
+
+    const handleSave = () => {
+
     }
 
     return (
