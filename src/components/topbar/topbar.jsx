@@ -16,7 +16,7 @@ export default function Topbar() {
     })
 
     return (
-        <header className="flex justify-between items-center sticky top-0 shadow-sm bg-white dark:bg-black py-2 md:px-8 px-4 z-[3]">
+        <header className="flex justify-between items-center sticky top-0 shadow-sm bg-white dark:bg-black py-4 md:px-8 px-4 z-[3]">
             <Link to={"/"} className="text-[18px] font-medium">Acad<span className="text-purple">Med</span></Link>
             <nav className="sm:block hidden">
                 <ul className="flex items-center justify-between gap-4 font-medium">
@@ -35,7 +35,7 @@ export default function Topbar() {
                     { user?.photoURL ? <img src={user?.photoURL} alt="user" className="rounded-full" width={35} height={35} /> : user?.email.charAt(0)}
                 </Link>
                 :
-                <a href="/login" className="md:block hidden px-6 py-2 bg-black text-white rounded">Login</a>
+                <a href="/login" className="px-6 py-2 bg-black text-white rounded">Login</a>
             }
         </header>
     )
