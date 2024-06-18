@@ -7,7 +7,7 @@ export default function SymptomCheck() {
 
     return (
         <div className="flex flex-wrap justify-between">
-            <div className="lg:w-[60%] w-full">
+            <div className="lg:w-[60%] w-full md:mt-0 mt-12">
                 <UserFlow result={result} setResult={setResult} data={data} setData={setData}/>
             </div>
             
