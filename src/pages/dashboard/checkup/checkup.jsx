@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import Card from '../../../components/general/card'
 import GeneralHeader from '../../../components/general/header'
-import Button from '../../../components/general/button'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../../customHooks/useAuth'
 import { FiEdit } from 'react-icons/fi'
