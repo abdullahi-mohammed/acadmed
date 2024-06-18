@@ -7,6 +7,8 @@ import Login from './pages/login/login'
 import AuthProvider from './customHooks/useAuth'
 import SchedulesProvider from './context/scheduleContext'
 import CheckupProvider from './context/checkupContext'
+import About from './pages/about'
+import Footer from './components/footer/footer'
 
 function App() {
 
@@ -20,8 +22,10 @@ function App() {
               <Route path={"/"} exact element={<Home />} />
               <Route path={"/login"} exact element={<Login />} />
               <Route path={"/dashboard/*"} exact element={<Dashboard />} />
+              <Route path={"/about"} exact element={<About />} />
             </Routes>
           </BrowserRouter>
+          {/* <Footer /> */}
         </CheckupProvider>
       </SchedulesProvider>
     </AuthProvider>

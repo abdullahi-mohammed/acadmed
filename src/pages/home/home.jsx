@@ -16,12 +16,12 @@ export default function Home() {
 
                     <img src="/images/hero-image.webp" alt="hero image" className="md:w-[600px] mx-auto" />
                 </div>
-                <div className="bg-[#2A3443] text-white rounded-t-[40px] flex items-center justify-center gap-7 p-[40px]">
-                    <div className="w-[40%] flex flex-col gap-6 items-start">
+                <div className="bg-[#2A3443] text-white rounded-t-[40px] flex flex-wrap items-center justify-center mt-8 md:mt-[unset] gap-7 p-[40px]">
+                    <div className="flex flex-col gap-6 md:w-[40%] min-w-[100px] items-start">
                         <p className="bg-[#AC42C7] py-2 px-5 rounded-md select-none">Our mission</p>
                         <p className="">Every student needs optimal health to excel in school. AcadMed gives access to quality health assesments and how to best structure your time effectively.</p>
                     </div>
-                    <div className="w-[30%]">
+                    <div className="md:w-[30%] min-w-[200px]">
                         <h3 className="text-[24px] font-semibold">We make quality telehealth available to students</h3>
                     </div>
                 </div>

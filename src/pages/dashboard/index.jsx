@@ -25,7 +25,6 @@ function Dashboard() {
       <div className='flex '>
         <SideNav />
         <div className="flex-1 p-[3%]">
-
           <div className="flex flex-wrap justify-between items-start w-full">
             <div className="w-full">
               <Routes>
