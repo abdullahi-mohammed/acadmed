@@ -13,7 +13,6 @@ const Checkup = () => {
     const { checkups } = useContext(CheckupContext)
 
     useEffect(() => {
-        console.log(checkups)
         setCheckup(checkups.filter(item => item.user === user.email)[0])
     }, [checkups])
 
@@ -24,7 +23,7 @@ const Checkup = () => {
                 <div className="flex gap-2 flex-wrap py-4">
                         <div className='flex flex-col items-center gap-4 bg-[#FFFFFF] dark:bg-black border-gray-500/[0.2] border p-4 py-6 rounded-[10px]'>
                             {
-                                user.photoURL ?
+                                user?.photoURL ?
                                     <img src={user?.photoURL} alt="profile pic" className="w-[90px] rounded-full" />
                                 :
                                     <p className="flex justify-center items-center bg-gray-400/[0.2] h-[90px] w-[90px] rounded-full">{user.email.charAt(0)}</p>
@@ -61,7 +60,7 @@ const Checkup = () => {
                                         <p className="opacity-[0.6] text-[10px] mb-1">Symptoms</p>
                                         <div className="grid grid-cols-2 gap-1">
                                         {
-                                            checkup?.symptoms.map((symptom) => (
+                                            checkup?.symptoms?.map((symptom) => (
                                                 <button 
                                                     key={symptom.id} 
                                                     className="flex items-center gap-2 text-start text-[10px] p-2 py-1 rounded border border-gray-500/[0.2]" 
