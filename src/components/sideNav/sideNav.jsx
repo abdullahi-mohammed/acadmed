@@ -27,7 +27,7 @@ export default function SideNav() {
         <div 
             ref={sideNavRef}
             className={`w-[250px] px-3 md:h-screen h-full md:bg-[#F7F7F9]/[0.7] dark:bg-black bg-white
-            md:sticky fixed top-[54px] md:right-auto right-0 border border-gray-500/[0.1] transition-all duration-700 md:z-0 z-[4]
+            md:sticky fixed top-[68px] md:right-auto right-0 border border-gray-500/[0.1] transition-all duration-700 md:z-0 z-[4]
             ${open ? "translate-x-[0px]" : "md:translate-x-0 translate-x-[250px]"}
         `}>
 
