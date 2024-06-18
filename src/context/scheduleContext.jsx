@@ -40,9 +40,6 @@ export default function SchedulesProvider({ children }) {
             setLoading(false)
         }
     }
-
-    
-
     
     const getAllSchedules = async () => {
         setLoading(true)

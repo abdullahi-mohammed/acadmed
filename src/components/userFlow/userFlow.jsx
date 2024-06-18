@@ -1,14 +1,18 @@
 import { PiList, PiStethoscope, PiUser, PiUserCheck } from "react-icons/pi"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import BasicInfo from "./basicInfo"
 import Assessments from "./assessments"
 import Symptoms from "./symptoms"
 import { infermedica } from "../../utils/infermedica"
 import { nanoid } from "nanoid"
 import AssessmentResult from "./result"
+import { AuthContext } from "../../customHooks/useAuth"
+import { CheckupContext } from "../../context/checkupContext"
 
 export default function UserFlow({ result, setResult, data, setData }) {
     const [active, setActive] = useState(0)
+    const {user} = useContext(AuthContext)
+    const { addCheckup } = useContext(CheckupContext)
 
     const flow = [
         { id: 0, icon: <PiUser />, title: "Basic Information" },
@@ -33,6 +37,7 @@ export default function UserFlow({ result, setResult, data, setData }) {
                 : 
                 { id: item.id, choice_id: "present" }
             ))
+            addCheckup({ ...data, user: user.email })
             infermedica(data.gender, data.age, data.interviewId, evidence)
             .then(result => setResult(result))
             .catch(error => console.log(error))
