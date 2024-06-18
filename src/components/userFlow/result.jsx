@@ -1,15 +1,21 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import SelectField from '../selectField/selectField'
 import { infermedica } from '../../utils/infermedica'
+import { CheckupContext } from '../../context/checkupContext'
+import { AuthContext } from '../../customHooks/useAuth'
 
 export default function AssessmentResult({ result, data }) {
     const [ interview, setInterview ] = useState([])
     const [ answers, setAnswers ] = useState([])
     const [ answer, setAnswer ] = useState([])
     const [ active, setActive ] = useState(0)
+    const {user} = useContext(AuthContext)
+    const { updateCheckup, checkups } = useContext(CheckupContext)
+    const userCheckup = checkups.filter(item => item.user === user.email)[0]
 
     useEffect(() => {
         setInterview([ result ])
+        updateCheckup(userCheckup.id, { conditions: result.conditions })
     }, [result])
     
     const addUserAnswer = (id, value) => {
@@ -42,14 +48,11 @@ export default function AssessmentResult({ result, data }) {
     const handleNext = () => {
         infermedica(data.gender, data.age, data.interviewId, answers[active].answer)
         .then(result => {
+            updateCheckup(userCheckup.id, { conditions: result.conditions })
             setInterview([ ...interview, result ])
             setActive(active+1)
         })
         .catch(error => console.log(error))
-    }
-
-    const handleSave = () => {
-
     }
 
     return (
@@ -62,9 +65,9 @@ export default function AssessmentResult({ result, data }) {
                         <div 
                             key={condition.id}
                             className={`flex flex-col bg-slate-100 p-4 gap-2 rounded-[10px] my-2 border
-                            ${condition.probability > 0.5 ? "bg-emerald-400/[0.09] border-green-400" : 
+                            ${condition.probability > 0.5 ? "bg-green-400/[0.09] border-green-400" : 
                                 condition.probability > 0.3 ? "bg-yellow-400/[0.09] border-orange-400/[0.4]" 
-                                : "bg-purple/[0.09] border-purple/[0.4]"}`} 
+                                : "bg-gray-400/[0.1] border-gray-500/[0.1]"}`} 
                         >
                             <p className="font-medium">{condition.name}</p>
                             <div className="flex gap-1 text-[10px] opacity-[0.6]">
