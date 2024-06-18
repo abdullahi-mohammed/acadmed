@@ -1,7 +1,8 @@
-import { createContext, useEffect, useState } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 import { useLocalStorage } from "../customHooks/useLocalStorage"
-import { addDoc, collection, doc, getDocs, updateDoc } from "firebase/firestore"
+import { addDoc, collection, doc, getDocs, query, updateDoc, where } from "firebase/firestore"
 import { db } from "../firebase/firebase"
+import { AuthContext } from "../customHooks/useAuth"
 
 
 export const CheckupContext = createContext()
@@ -10,6 +11,7 @@ export default function CheckupProvider({ children }) {
     const [checkups, setCheckups] = useLocalStorage("checkups", [])
     const [popup, setPopup] = useState()
     const [loading, setLoading] = useState(false)
+    const {user} = useContext(AuthContext)
 
     const addCheckup = async (data) => {
         setLoading(true)
@@ -35,7 +37,6 @@ export default function CheckupProvider({ children }) {
             setLoading(false)
         }
         catch(e) {
-            console.log(e)
             setPopup({ type: "error", msg: "Error updating Checkup" })
             setLoading(false)
         }
@@ -45,7 +46,7 @@ export default function CheckupProvider({ children }) {
         setLoading(true)
         try {
             let arr = []
-            const querySnapshot = await getDocs(collection(db, "checkups"));
+            const querySnapshot = await getDocs(query(collection(db, "checkups"), where("user", "==", user?.email)));
             querySnapshot.forEach((doc) => {
                 arr.push({...doc.data(), id: doc.id})
             })

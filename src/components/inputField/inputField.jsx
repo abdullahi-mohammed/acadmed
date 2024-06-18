@@ -10,7 +10,7 @@ function InputField({ text, action, value, type, placeholder }) {
                 <label 
                     htmlFor={text} 
                     className={`absolute duration-500 min-w-[80px] p-[1px] px-2 rounded capitalize 
-                    ${focus || value !== "" ? "bg-gradient-to-b from-white via-white dark:via-black dark:from-black text-purple -top-5 left-0 text-[10px]" : active ? "-top-5 left-0 text-[10px] text-gray-500" : "left-2 top-[10px] bg-white dark:bg-black text-[12px]"}`}
+                    ${focus ? "bg-gradient-to-b from-white via-white dark:via-black dark:from-black text-purple -top-5 left-0 text-[10px]" : active || value !== "" ? "-top-5 left-0 text-[10px] text-gray-500" : "left-2 top-[10px] bg-white dark:bg-black text-[12px]"}`}
                 >
                     {text}
                 </label>

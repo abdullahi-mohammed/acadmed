@@ -55,7 +55,7 @@ export default function Symptoms ({ data, setData }) {
                         <p className="text-center bg-slate-100 dark:bg-black rounded p-2 mt-4 w-full">Your Symptoms</p>
                         <div className="flex flex-wrap text-[12px] gap-2 pt-4 pb-4 max-h-[250px] overflow-y-auto">
                         {
-                            data.symptoms.map((symptom) => (
+                            data?.symptoms.map((symptom) => (
                                 <button 
                                     key={symptom.id} 
                                     className="flex items-center gap-2 text-start p-2 py-1 rounded border border-gray-500/[0.2]" 

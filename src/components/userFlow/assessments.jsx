@@ -43,21 +43,21 @@ export default function Assessments ({ data, setData }) {
             <div className="flex flex-col rounded-[15px] border border-gray-500/[0.1] my-4">
                 <p className="font-medium p-4 px-6 border border-transparent border-b-gray-500/[0.1] bg-gray-100 dark:bg-slate-100/[0.04] rounded-t-[15px]">Current Weight (kg)</p>
                 <div className="gap-4 px-6">
-                    <SelectField text={"weight"} action={handleField} value={data.weight} options={weightRanges}/>
+                    <SelectField text={"weight"} action={handleField} value={data?.weight} options={weightRanges}/>
                 </div>
             </div>
 
             <div className="flex flex-col rounded-[15px] border border-gray-500/[0.1] my-4">
                 <p className="font-medium p-4 px-6 border border-transparent border-b-gray-500/[0.1] bg-gray-100 dark:bg-slate-100/[0.04] rounded-t-[15px]">Fitness Level (How often do you take exercises)</p>
                 <div className="gap-4 px-6">
-                    <SelectField text={"fitness"} action={handleField} value={data.fitness} options={fitnessFrequencies}/>
+                    <SelectField text={"fitness"} action={handleField} value={data?.fitness} options={fitnessFrequencies}/>
                 </div>
             </div>
 
             <div className="flex flex-col rounded-[15px] border border-gray-500/[0.1] my-4">
                 <p className="font-medium p-4 px-6 border border-transparent border-b-gray-500/[0.1] bg-gray-100 dark:bg-slate-100/[0.04] rounded-t-[15px]">Blood Group</p>
                 <div className="gap-4 px-6">
-                    <SelectField text={"blood"} action={handleField} value={data.blood} options={bloodGroups}/>
+                    <SelectField text={"blood"} action={handleField} value={data?.blood} options={bloodGroups}/>
                 </div>
             </div>
 

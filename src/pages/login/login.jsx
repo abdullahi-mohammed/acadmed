@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { PiEye, PiEyeSlash } from "react-icons/pi";
-import { FaEnvelope, FaTimes } from "react-icons/fa";
+import { FaEnvelope, FaSpinner, FaTimes } from "react-icons/fa";
 
 import { AuthContext } from "../../customHooks/useAuth";
 import { validation } from "../../utils/helpers/formValidation";
@@ -10,7 +10,7 @@ import Popup from "../../components/popup/popup";
 
 
 export default function Login() {
-    const { signIn, signUp, socialSignIn, popup, setPopup } = useContext(AuthContext)
+    const { signIn, signUp, socialSignIn, popup, setPopup, loading } = useContext(AuthContext)
     const [username, setusername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -80,11 +80,20 @@ export default function Login() {
                     </div>
                     <p className="text-red-600 text-[9px] mb-6">{error.password}</p>
 
-                    <button className="bg-black dark:bg-[#000]/[0.5] text-white p-3 w-full disabled:bg-black/[0.8] disabled:dark:bg-[#000]/[0.09] rounded mt-4" onClick={() => handleSubmit(active ==="login" ? "login" : "register")}>{active === "login" ? "Login" : "Register"}</button>
+                    <button className="bg-black dark:bg-[#000]/[0.5] text-center text-white p-3 w-full disabled:bg-black/[0.8] disabled:dark:bg-[#000]/[0.09] rounded mt-4" onClick={() => handleSubmit(active ==="login" ? "login" : "register")}>{loading ? <FaSpinner className="animate-spin" /> : active === "login" ? "Login" : "Register"}</button>
                     
-                    <button className="text-purple p-3 w-full rounded mt-4" onClick={() => setActive(active === "login" ? "register" : "login")}>{active === "login" ? "Don't have an account? Create Account" : "Already registered? Login"}</button>
+                    <button 
+                        className="text-purple p-3 w-full rounded mt-4" 
+                        onClick={() => setActive(active === "login" ? "register" : "login")}
+                    > 
+                        {active === "login" ? "Don't have an account? Create Account" : "Already registered? Login"}
+                    </button>
+                    
 
-                    <p className="text-center mt-8">By Registering above, you acknowledge that you have read and agreed to our <a href="/terms" className="text-purple">Terms & Privacy Policy</a></p>
+                    <p className="text-center mt-8">
+                        By Registering above, you acknowledge that you have read and agreed to our 
+                        <a href="/terms" className="text-purple">Terms & Privacy Policy</a>
+                    </p>
 
                 </div>
             </div>

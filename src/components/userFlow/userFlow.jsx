@@ -23,7 +23,7 @@ export default function UserFlow({ result, setResult, data, setData }) {
     ]
 
     useEffect(() => {
-        setData(userCheckup)
+        setData(userCheckup || { symptoms: [], fullname: user.displayName || "" })
     }, [userCheckup])
 
     const handleNext = () => {
@@ -32,7 +32,6 @@ export default function UserFlow({ result, setResult, data, setData }) {
             data.fullname && data.age && data.gender ? setActive(1) : ""
         }
         else if(active === 1) {
-            console.log(data)
             data.weight && data.fitness && data.blood ? setActive(2) : ""
         }
         else if(active === 2) {
@@ -43,7 +42,7 @@ export default function UserFlow({ result, setResult, data, setData }) {
                 { id: item.id, choice_id: "present" }
             ))
             userCheckup ?
-            updateCheckup(userCheckup.id, { ...data })
+            updateCheckup(userCheckup?.id, { ...data })
             :
             addCheckup({ ...data, user: user.email });
 

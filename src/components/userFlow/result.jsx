@@ -15,7 +15,7 @@ export default function AssessmentResult({ result, data }) {
 
     useEffect(() => {
         setInterview([ result ])
-        updateCheckup(userCheckup.id, { conditions: result.conditions })
+        updateCheckup(userCheckup?.id, { conditions: result.conditions })
     }, [result])
     
     const addUserAnswer = (id, value) => {
