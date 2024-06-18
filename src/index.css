@@ -28,3 +28,34 @@ body {
   fill: rgb(207, 168, 255);
   stroke: none
 }
+.markdown ol li, .markdown ul li {
+  margin-block: 8px;
+}
+.markdown ol , .markdown ul {
+  padding: 10px;
+  border-radius: 5px;
+  background: #493b4f13;
+}
+.markdown p {
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f105;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #c058ed;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #7b3cf9;
+}
