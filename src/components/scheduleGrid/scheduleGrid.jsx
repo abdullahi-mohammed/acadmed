@@ -1,18 +1,47 @@
+import { useState } from "react"
 import { scheduleLayout } from "../../utils/helpers/scheduleLayout";
+import NewSchedule from "../newSchedule/newSchedule";
+import { FaTimes } from "react-icons/fa";
+import { useOutsideClick } from "../../customHooks/useClickOutside";
 
-export default function ScheduleGrid({element}) {
+export default function ScheduleGrid({element, layout}) {
+    const [open, setOpen] = useState(false)
+    const [openEdit, setOpenEdit] = useState(false)
+
+    const scheduleEditRef = useOutsideClick(setOpenEdit)
+    const scheduleRef = useOutsideClick(setOpen)
 
     return (
-        <div key={element.id} 
-            style={{ top: scheduleLayout(element.duration).top, height: scheduleLayout(element.duration).height }} 
-            className={`m-[2px] absolute left-0 w-[97%] border rounded pl-2 py-2 
-            ${element.status === "Completed" ? "bg-emerald-400/[0.3] border-green-400" 
-            : element.status === "Upcoming" ? "bg-yellow-400/[0.3] border-orange-400/[0.4]" 
-            : element.status === "On-hold" ? "bg-red-400/[0.3] border-red-400/[0.4]" 
+        <div 
+            ref={scheduleRef} 
+            tabIndex={1}
+            onClick={() => setOpen(!open)}
+            onKeyPress={() => setOpen(!open)}
+            style={{ top: scheduleLayout(element.duration).top, height: !open ? scheduleLayout(element.duration).height : "auto" }} 
+            className={`m-[2px] ${layout === "Calendar" ? "absolute text-[10px] w-[97%]" : "text-[12px]"} left-0 border duration-500 rounded pl-2 py-1 pb-2 break-inside-avoid
+            ${element.status === "Completed" ? "bg-emerald-400/[0.2] border-green-400/[0.4]" 
+            : element.status === "Upcoming" ? "bg-yellow-400/[0.2] border-orange-400/[0.4]" 
+            : element.status === "On-hold" ? "bg-red-400/[0.2] border-red-400/[0.4]" 
             : "bg-purple/[0.3] border-purple/[0.4]"}`}>          
             
-            <h3 className="text-[10px] font-medium mt-1">{element.title}</h3>  
+            <h3 className="font-medium mt-1">{element.title}</h3>  
             <p className="text-[8px] mt-1">{element.duration.replace(",", " - ")}</p>  
+
+            <div className={`p-2 rounded bg-slate-100/[0.09] mr-2 mt-2 ${open ? "block" : "hidden"}`}>
+                <p className="mb-2">Description: {element.description}</p>
+                <button className="p-4 py-1 bg-gray-500/[0.2] rounded" onClick={() => setOpenEdit(true)}>Edit</button>
+            </div>
+
+
+            <div className={`${openEdit ? "fixed top-0 left-0 w-full h-screen bg-white/[0.8] dark:bg-black/[0.8] flex items-center justify-center z-[2]": ""}`}>
+                <div ref={scheduleEditRef} className={`h-auto p-8 rounded-[15px] bg-white dark:bg-black w-[350px] border border-gray-500/[0.1] shadow-md z-[12] transition-all duration-700 ${openEdit ? "block" : "hidden"}`}>
+                    <div className="flex justify-between items-center">
+                        <h2 className="font-bold text-[16px]">Edit task</h2>
+                        <button onClick={() => setOpenEdit(false)}><FaTimes className="p-2 text-[28px] rounded shadow-lg border border-gray-500/[0.3]" /></button>
+                    </div>
+                    <NewSchedule schedule={element} />
+                </div>
+            </div>
         </div>
     )
 }
