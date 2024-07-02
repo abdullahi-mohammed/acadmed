@@ -86,7 +86,7 @@ const Checkup = () => {
                                     checkup?.conditions?.map(condition => (
                                         <div 
                                             key={condition.id}
-                                            className={`flex flex-col bg-slate-100 p-4 gap-2 rounded-[10px] my-2 border
+                                            className={`flex flex-col p-4 gap-2 rounded-[10px] my-2 border
                                             ${condition.probability > 0.5 ? "bg-green-400/[0.09] border-green-400" : 
                                                 condition.probability > 0.3 ? "bg-yellow-400/[0.09] border-orange-400/[0.4]" 
                                                 : "bg-gray-400/[0.1] border-gray-500/[0.1]"}`} 
