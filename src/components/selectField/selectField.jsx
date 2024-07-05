@@ -11,7 +11,7 @@ function SelectField({ text, action, value, options }) {
                     className="p-2 border-none outline-none bg-transparent w-full" 
                     onFocus={() => setFocus(true)} 
                     onBlur={() => setFocus(false)} 
-                    defaultValue={value}
+                    value={value}
                     onChange={(e) => {action(text, e.target.value)}}
                 >
                     <option className="opacity-[0.5]">Select one</option>

@@ -13,7 +13,7 @@ export default function Topbar() {
         } else {
             document.documentElement.classList.remove('dark')
         }
-    })
+    }, [])
 
     return (
         <header className="flex justify-between items-center sticky top-0 shadow-sm bg-white dark:bg-black py-4 md:px-8 px-4 z-[3]">

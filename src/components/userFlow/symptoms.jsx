@@ -2,12 +2,14 @@ import { symptoms } from "../../data/symptoms"
 import { useState } from "react"
 import Model from "../../data/model"
 import { FaTimes } from "react-icons/fa"
+import SearchSymptoms from "../searchSymptoms/searchSymptoms"
 
 export default function Symptoms ({ data, setData }) {
     const [active, setActive] = useState("head")
     
     const addSymptom = (symptom) => {
-        setData({ ...data, symptoms: data.symptoms?.indexOf(symptom) === -1 ? [...data.symptoms, symptom] : data.symptoms })
+        console.log(data)
+        setData({ ...data, symptoms: data.symptoms?.map(item => item.id).indexOf(symptom.id) === -1 ? [...data.symptoms, symptom] : data.symptoms })
     }
 
     const removeSymptom = (id) => {
@@ -33,7 +35,9 @@ export default function Symptoms ({ data, setData }) {
 
 
                         <div className="px-4 md:w-[60%] w-full">
+                            <SearchSymptoms addSymptom={addSymptom}/>
                             <p className="text-center bg-slate-100 dark:bg-black rounded p-2 capitalize">{active.replaceAll("_", " ")}</p>
+
                             <div className="flex flex-col text-[12px] gap-1 pt-4 pb-4 my-4 max-h-[250px] overflow-y-auto">
                             {
                                 symptoms[active]?.map((symptom, i) => (

@@ -19,7 +19,7 @@ export default function ScheduleGrid({element, layout}) {
             onKeyDown={(e) => e.key === "Enter" ? setOpen(!open) : ""}
             style={{ top: scheduleLayout(element.duration).top, height: !open ? scheduleLayout(element.duration).height : "auto" }} 
             className={`m-[2px] ${layout === "Calendar" ? `absolute text-[10px] w-[97%]` : `${!open ? "max-h-[150px] min-h-[80px]" : ""} text-[12px]`} 
-            left-0 border duration-500 rounded pl-2 py-1 pb-2 break-inside-avoid min-h-[65px] z-[1]
+            left-0 border duration-500 rounded px-2 py-1 pb-2 break-inside-avoid min-h-[65px] z-[1]
             ${element.status === "Completed" ? "bg-emerald-400/[0.2] border-green-400/[0.4]" 
             : element.status === "Upcoming" ? "bg-yellow-400/[0.2] border-orange-400/[0.4]" 
             : element.status === "On-hold" ? "bg-red-400/[0.2] border-red-400/[0.4]" 

@@ -80,6 +80,7 @@ export default function AssessmentResult({ result, data }) {
             </div>
 
             <div>
+                <p className='pt-8'>Help us get the probable condition accurately. Please answer the few questions</p>
                 <div className="flex flex-col rounded-[15px] border border-gray-500/[0.1] my-4">
                     <p className="font-medium p-4 px-6 mb-4 border border-transparent border-b-gray-500/[0.1] bg-gray-100 dark:bg-black rounded-t-[15px]">{interview[active]?.question?.text}</p>
                     <div className="px-6">

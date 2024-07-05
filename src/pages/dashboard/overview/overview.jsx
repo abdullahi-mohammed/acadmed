@@ -57,17 +57,14 @@ export default function Overview() {
 
           <Link to={"/dashboard/checkup"} className="flex items-center gap-2 px-6 py-2 mt-4 bg-purple text-white rounded">View Checkup History  <PiBackpack /></Link>
 
-          <div className='my-4 w-full flex-1 flex flex-col justify-between items-start bg-[#FFFFFF] dark:bg-black border-gray-500/[0.2] border p-6 rounded-[10px]'>
-            <div className="w-full">
-                <h3 className="font-semibold border border-transparent border-b-gray-500/[0.2] pb-4">Your tasks</h3>
-                <div className="py-2">
-                        {
-                            schedules.slice(0, 4).map(element => ( 
-                                <ScheduleGrid key={element.id} element={element} layout={"List"} />
-                            ))
-                        }
-                </div>
-            </div>
+          <h3 className="font-semibold border border-transparent border-b-gray-500/[0.2] py-4">Your tasks</h3>
+          
+          <div className="md:columns-4 columns-2 py-2 pb-16 ">
+                  {
+                      schedules.slice(0, 4).map(element => ( 
+                          <ScheduleGrid key={element.id} element={element} layout={"List"} />
+                      ))
+                  }
           </div>
           <Link to={"/dashboard/planner"} className="flex items-center gap-2 px-6 py-2 mt-4 bg-purple text-white rounded">View All Tasks  <PiCalendar /></Link>
         </div>
