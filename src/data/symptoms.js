@@ -79,9 +79,7 @@ export const symptoms = {
       { id: "s_1094", description: "Clearing the throat" },
       { id: "s_2166", description: "Whistling sound made while breathing (wheezing)" },
       { id: "s_1471", description: "Mucus dripping at the back of the throat (postnasal drip)" },
-      { id: "s_88", description: "Hoarse voice" },
       { id: "s_252", description: "Itchy nose or throat" },
-      { id: "s_88", description: "Shortness of breath (dyspnea)" },
       { id: "s_1483", description: "Pain in the neck" },
       { id: "s_220", description: "Enlarged lymph nodes" },
       { id: "s_418", description: "Stiff neck" },
@@ -93,7 +91,6 @@ export const symptoms = {
       { id: "s_586", description: "Breast enlargement in man (Gynecomastia)" },
       { id: "s_50", description: "Chest pain" },
       { id: "s_2074", description: "Chest pain, spreading to the left upper limb (potential sign of heart attack)" },
-      { id: 3, description: "Pressing chest pain (heartburn, angina, or pleurisy)" },
       { id: "s_338", description: "Heartburn (burning sensation caused by stomach acid)" },
       { id: "s_110", description: "Palpitations (feeling of fluttering or racing heartbeats)" },
       { id: "s_261", description: "Fast heart rate (tachycardia - resting rate > 100 bpm)" },
@@ -107,17 +104,40 @@ export const symptoms = {
       { id: "s_227", description: "Rapid breathing (tachypnea - > 12 breaths per minute at rest)" },
       { id: "s_2166", description: "Whistling sound made while breathing (wheezing - narrowed airways)" },
     ],
-    upperarm: [
+    upper_arm: [
+      { id: "s_580", description: "Pain in upper limb" },
+      { id: "s_1452", description: "Pain in both upper limb" },
+      { id: "s_2068", description: "Upper limb pallor" },
+      { id: "s_1619", description: "Upper limb tenderness" },
     ],
     forearm: [
+      { id: "s_1799", description: "Pain in upper limb forearm" },
     ],
     hand: [
+      { id: "s_1982", description: "Dermatological changes hands" },
+      { id: "s_555", description: "Tingling fingers" },
+      { id: "s_1899", description: "Tingling fingers first three digits" },
+      { id: "s_1900", description: "Tingling fingers fourth and fifth digits" },
+      { id: "s_2646", description: "Tremors either hand" },
+      { id: "s_87", description: "Tremors both hands" },
+      { id: "s_554", description: "Pain in upper limb hand or fingers" }
     ],
     abdomen: [
+      { id: "s_13", description: "Abdominal pain" },
+      { id: "s_1514", description: "Abdominal tenderness" },
+      { id: "s_309", description: "Bloating" },
+      { id: "s_277", description: "Increased abdominal girth" },
+      { id: "s_156", description: "Nausea" },
       { id: 's_8', description: 'Diarrhea' },
       { id: 's_215', description: 'Frequent urination' }
     ],
     mid_abdomen: [
+      { id: "", description: "Mid-abdomen cramping" },
+      { id: "", description: "Mid-abdomen mass" },
+      { id: "", description: "Mid-abdomen pain" },
+      { id: "", description: "Mid-abdomen swelling" },
+      { id: "", description: "Mid-abdomen tenderness" },
+      { id: "", description: "Mid-abdomen tension" },
     ],
     lower_abdomen: [
       { id: 's_175', description: 'Edema both lower limbs' }

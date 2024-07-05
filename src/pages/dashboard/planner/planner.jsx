@@ -7,25 +7,26 @@ import { useOutsideClick } from "../../../customHooks/useClickOutside";
 import { SchedulesContext } from "../../../context/scheduleContext";
 import SchedulesLayout from "../../../components/schedulesLayout/schedulesLayout";
 import BotTips from "../../../components/botTips/botTips";
+import Calendar from "react-calendar";
+import { dateParser } from "../../../utils/helpers/dateParser";
 
 export default function Planner() {
     const [openNewSchedule, setOpenNewSchedule] = useState(false)
     const [layout, setLayout] = useState("Calendar")
+    const [openCalendar, setOpenCalendar] = useState(false)
+    const [value, setValue] = useState(new Date())
     const scheduleRef = useOutsideClick(setOpenNewSchedule)
     const { schedules } = useContext(SchedulesContext);
 
-    useEffect(() => {
-        console.log(schedules)
-    }, [])
+    const booked = schedules?.map(schedule => dateParser(schedule.date));
 
-    const value = new Date()
     const layoutList = [
         { id: 0, icon: <PiCalendar />, title: "Calendar"},
         { id: 1, icon: <PiGridFour />, title: "Grid"},
         { id: 2, icon: <PiList />, title: "List"},
     ]
 
-
+    const calendarRef = useOutsideClick(setOpenCalendar)
 
     return (
         <div className="w-full">
@@ -37,10 +38,23 @@ export default function Planner() {
                     <div className="flex flex-wrap gap-4 justify-between py-4 mb-4 rounded border border-transparent border-b-gray-500/[0.1]">
 
                         {/* Calendar date display */}
-                        <button className="flex gap-2 items-center px-4 py-2 rounded shadow-md border border-gray-500/[0.1]">
-                            <span className="flex items-center gap-1 uppercase"><PiCalendar className="text-purple"/></span>
-                            <span>{`${value.getDate()} | ${value.getMonth()} | ${value.getFullYear()}`}</span>
-                        </button>
+                        <div className="relative">
+                            <button className="flex gap-2 items-center px-4 py-2 rounded shadow-md border border-gray-500/[0.1]" onClick={() => setOpenCalendar(!openCalendar)}>
+                                <span className="flex items-center gap-1 uppercase"><PiCalendar className="text-purple"/></span>
+                                <span>{`${value.getDate()} | ${value.getMonth()} | ${value.getFullYear()}`}</span>
+                            </button>
+
+                            <div ref={calendarRef} className={`absolute top-[100%] left-0 w-[200px] z-[10] bg-white dark:bg-black shadow-lg ${ openCalendar ? "block" : "hidden" }`}>
+                                <Calendar onChange={setValue} value={value} tileClassName={( { date }) => {
+                                    let classes = "tile";
+
+                                    if(booked?.some((b) => b.getTime() === date.getTime())) {
+                                        classes = `${classes} dotted`;
+                                    }
+                                    return classes;
+                                }} />
+                            </div>
+                        </div>
 
                         <div className="flex gap-4 justify-between sm:w-fit w-full">
 

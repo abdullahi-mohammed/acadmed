@@ -9,9 +9,9 @@ function SelectField({ text, action, value, options }) {
                 <select 
                     id={text} 
                     className="p-2 border-none outline-none bg-transparent w-full" 
-                    value={value}
                     onFocus={() => setFocus(true)} 
                     onBlur={() => setFocus(false)} 
+                    value={value}
                     onChange={(e) => {action(text, e.target.value)}}
                 >
                     <option className="opacity-[0.5]">Select one</option>
