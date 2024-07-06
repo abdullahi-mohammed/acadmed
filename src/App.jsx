@@ -25,7 +25,7 @@ function App() {
               <Route path={"/about"} exact element={<About />} />
             </Routes>
           </BrowserRouter>
-          {/* <Footer /> */}
+          <Footer />
         </CheckupProvider>
       </SchedulesProvider>
     </AuthProvider>

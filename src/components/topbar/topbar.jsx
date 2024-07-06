@@ -17,7 +17,10 @@ export default function Topbar() {
 
     return (
         <header className="flex justify-between items-center sticky top-0 shadow-sm bg-white dark:bg-black py-4 md:px-8 px-4 z-[3]">
-            <Link to={"/"} className="text-[18px] font-medium">Acad<span className="text-purple">Med</span></Link>
+            <Link to={"/"} className="text-[18px] font-medium flex items-center gap-2">
+                <img src="/images/logo.svg" width={30} height={30} alt="logo" />
+                <p>Acad<span className="text-purple"> Med</span></p>
+            </Link>
             <nav className="sm:block hidden">
                 <ul className="flex items-center justify-between gap-4 font-medium">
                     {/* className="flex items-center justify-center gap-2" */}
